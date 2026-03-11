@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { env } from './config/env';
+import Sentry from './lib/sentry';  // Use the exported Sentry instance
 
 const app = express();
 
@@ -13,6 +14,8 @@ app.use(cors({
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
+
+Sentry.setupExpressErrorHandler(app);
 
 app.listen(env.APP_PORT, env.APP_HOST, () => {
   console.log(`${env.APP_NAME} is running on http://${env.APP_HOST}:${env.APP_PORT} in ${env.NODE_ENV} mode`);
