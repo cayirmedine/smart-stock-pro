@@ -55,6 +55,8 @@ const envSchema = z.object({
   PRISMA_LOG_QUERIES: z.preprocess(toBoolean, z.boolean()).default(false),
   PRISMA_LOG_WARNINGS: z.preprocess(toBoolean, z.boolean()).default(true),
   PRISMA_LOG_ERRORS: z.preprocess(toBoolean, z.boolean()).default(true),
+
+  SENTRY_DSN: z.string().url().optional(),
 });
 
 const parsed = envSchema.safeParse(process.env);
