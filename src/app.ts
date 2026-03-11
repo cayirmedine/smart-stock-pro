@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import { env } from './config/env';
-import Sentry from './lib/sentry';  // Use the exported Sentry instance
+import { env } from './config/env.js';
+import Sentry from './lib/sentry.js';  // Use the exported Sentry instance
 import { errorHandler } from './middlewares/errorHandler';
 
 const app = express();
