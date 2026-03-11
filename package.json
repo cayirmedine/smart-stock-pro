@@ -4,9 +4,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx src/app.ts",
+    "dev": "node --import tsx --import ./src/lib/sentry.ts ./src/app.ts",
     "build": "tsc",
-    "start": "node dist/app.js",
+    "start": "node --import ./dist/lib/sentry.js ./dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
